@@ -9,16 +9,19 @@ module.exports = curry((adapter, blocType, payload) => {
     adapter.once(target, res => {
       if (not(handled)) {
         resolve(res)
-        hanlded = true
+        handled = true
         clearTimeout(t)
       }
     })
-    t = setTimeout(_ => {
-      if (not(handled)) {
-        reject({ ok: false, message: 'Error - Service Not Responding...' })
-        handled = true
-      }
-    }, 3000)
+    t = setTimeout(
+      _ => {
+        if (not(handled)) {
+          reject({ ok: false, message: 'Error - Service Not Responding...' })
+          handled = true
+        }
+      },
+      3000
+    )
     adapter.emit(blocType, merge(payload, { target }))
   })
 })
