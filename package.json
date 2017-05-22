@@ -1,6 +1,6 @@
 {
   "name": "bloc-promise",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Bloc Promise is the invoker function of a bloc which provides a promise api.",
   "main": "index.js",
   "scripts": {
